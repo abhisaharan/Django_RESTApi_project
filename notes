@@ -1,0 +1,15 @@
+Flow to get started with RestAPI Django
+http://www.django-rest-framework.org/tutorial/1-serialization/
+
+-> pip install djangorestframework
+-> add our 'rest_framework' app to INSTALLED_APPS
+-> create a model to work with in a new application(ex: snippets)
+-> Create a file in the snippets directory named serializers.py
+-> Using ModelSerializers class helps reduces code like we used ModelForm class instead of Form.
+        It's important to remember that ModelSerializer classes don't do anything particularly magical, they are simply a shortcut for creating serializer classes:
+
+            An automatically determined set of fields.
+            Simple default implementations for the create() and update() methods.
+-> Create views and add snippets/urls.py
+-> We can test our API using curl or httpie. Httpie is a user friendly http client that's written in Python. Let's install that.
+    pip install httpie
