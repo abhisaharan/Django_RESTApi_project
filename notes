@@ -10,6 +10,8 @@ http://www.django-rest-framework.org/tutorial/1-serialization/
 
             An automatically determined set of fields.
             Simple default implementations for the create() and update() methods.
--> Create views and add snippets/urls.py
+-> Create views and add url to snippets/urls.py
+-> Many ways of creating views for serializers are 'class based views(*when using this make sure to modify snippets/urls.py ) and 'mixins' and 'generic class based views'
+    learn more: http://www.django-rest-framework.org/tutorial/1-serialization/
 -> We can test our API using curl or httpie. Httpie is a user friendly http client that's written in Python. Let's install that.
     pip install httpie
