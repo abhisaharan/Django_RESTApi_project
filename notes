@@ -15,3 +15,14 @@ http://www.django-rest-framework.org/tutorial/1-serialization/
     learn more: http://www.django-rest-framework.org/tutorial/1-serialization/
 -> We can test our API using curl or httpie. Httpie is a user friendly http client that's written in Python. Let's install that.
     pip install httpie
+
+
+
+
+
+********to remove database************
+-> command line:
+    rm -f tmp.db db.sqlite3
+    rm -r snippets/migrations
+
+
