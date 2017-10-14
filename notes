@@ -4,7 +4,7 @@ http://www.django-rest-framework.org/tutorial/1-serialization/
 -> pip install djangorestframework
 -> add our 'rest_framework' app to INSTALLED_APPS
 -> create a model to work with in a new application(ex: snippets)
--> Create a file in the snippets directory named serializers.py
+-> Create a file in the snippets directory named serializers.py and create serializer class.
 -> Using ModelSerializers class helps reduces code like we used ModelForm class instead of Form.
         It's important to remember that ModelSerializer classes don't do anything particularly magical, they are simply a shortcut for creating serializer classes:
 
@@ -15,6 +15,33 @@ http://www.django-rest-framework.org/tutorial/1-serialization/
     learn more: http://www.django-rest-framework.org/tutorial/1-serialization/
 -> We can test our API using curl or httpie. Httpie is a user friendly http client that's written in Python. Let's install that.
     pip install httpie
+
+
+-----working with serializer- data to JSON and serialization i.e parse JSON to python native data types
+import model, serilizer and JSONRenderer (to convert to json) and JSONParser (to convert back to python native datatype)
+Ex:
+snippet = Snippet(name = "Abhi")    #Snippet is database model we created
+snippet.save                        # we created model instance
+
+serializer = SnippetSerializer(snippet)
+serializer.data                     # model instance into Python native datatypes.
+
+Then we render to JSON
+
+content = JSONRenderer().render(serializer.data)
+content                             # render the data into json
+
+
+DESERILIZATION - first we parse a stream into python native datatype
+from django.utils.six import BytesIO
+stream = BytesIO(content)
+data = JSONParser().parse(stream)
+.then we restore those native datatypes into a fully populated object instance.
+serializer = SnippetSerializer(data=data)
+serializer.is_valid()
+# to check True
+serializer.validated_data
+serializer.save()
 
 
 
