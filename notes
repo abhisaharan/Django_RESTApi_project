@@ -47,6 +47,7 @@ serializer.save()
 
 
 
+
 ********to remove database************
 -> command line:
     rm -f tmp.db db.sqlite3
